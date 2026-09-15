@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@theme inline {
+  --color-clinical-blue: #0066CC;
+  --color-health-green: #10B981;
+  --color-deep-teal: #00897B;
+  --color-warm-orange: #F97316;
+  --color-neutral-gray: #6B7280;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 16px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes waveform {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes check-draw {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(80px) rotate(360deg); opacity: 0; }
+}
+
+/* ── Global dark mode — override Tailwind v4 color tokens ───────────── */
+/*    Every utility that references these vars flips automatically.       */
+html.dark-mode {
+  color-scheme: dark;
+
+  /* neutral surfaces */
+  --color-white:      #1E2D4E;
+  --color-gray-50:    #162040;
+  --color-gray-100:   #1a2a52;
+  --color-gray-200:   #243060;
+  --color-gray-300:   #2e3e78;
+  --color-gray-400:   #6478A4;
+  --color-gray-500:   #7B8DB8;
+  --color-gray-600:   #A0AECE;
+  --color-gray-700:   #CBD5F0;
+  --color-gray-800:   #E2E8F8;
+  --color-gray-900:   #F0F4FF;
+  --color-gray-950:   #F8FAFF;
+
+  /* tinted surfaces */
+  --color-blue-50:    #162655;
+  --color-blue-100:   #1e3070;
+  --color-indigo-50:  #1a2255;
+  --color-indigo-100: #202860;
+  --color-green-50:   #0e2d1e;
+  --color-green-100:  #0f3522;
+  --color-red-50:     #2d1010;
+  --color-red-100:    #381414;
+  --color-yellow-50:  #2d250e;
+  --color-orange-50:  #2d1a0e;
+  --color-purple-50:  #1e1540;
+  --color-slate-50:   #131d3a;
+  --color-slate-100:  #182040;
+  --color-slate-200:  #1e2a50;
+  --color-slate-800:  #E2E8F8;
+  --color-slate-900:  #F0F4FF;
+}
+
+/* inputs adapt via token inheritance */
+html.dark-mode input,
+html.dark-mode select,
+html.dark-mode textarea {
+  background-color: #162040 !important;
+  color: #F0F4FF !important;
+  border-color: #2e3e78 !important;
+}
+html.dark-mode input::placeholder,
+html.dark-mode textarea::placeholder { color: #6478A4 !important; }
+html.dark-mode input:focus,
+html.dark-mode select:focus,
+html.dark-mode textarea:focus {
+  border-color: #3B82F6 !important;
+  outline-color: #3B82F6 !important;
+}
+
+/* ── end dark mode ───────────────────────────────────────────────────── */
+
+.pulse-green { animation: pulse-ring 2s infinite; }
+.wave-bar { animation: waveform 0.8s ease-in-out infinite; }
+.animate-float-in { animation: float-in 0.4s ease-out forwards; }
+
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes wave-hand {
+  0% { transform: rotate(-8deg); }
+  100% { transform: rotate(8deg); }
+}
+
+@keyframes blob-drift-1 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(40px, -30px) scale(1.08); }
+  66%  { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob-drift-2 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(-35px, 25px) scale(1.06); }
+  66%  { transform: translate(20px, -15px) scale(0.97); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes blob-drift-3 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(25px, 30px) scale(1.05); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes icon-float-up {
+  0%   { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(-420px) rotate(20deg); opacity: 0; }
+}
+@keyframes auth-card-in {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes side-panel-in {
+  from { opacity: 0; transform: translateX(var(--tx, 0)); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+

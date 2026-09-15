@@ -1,0 +1,25 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.12
+httpx>=0.28.0
+
+# Image processing (required)
+Pillow>=10.0.0
+opencv-python-headless>=4.8.0
+numpy>=1.24.0
+
+# Primary OCR — handles printed text well, decent handwriting with LSTM
+pytesseract>=0.3.10
+
+# Secondary OCR — CRNN-based, stronger on curved/messy/handwritten text
+easyocr>=1.7.2
+
+# PDF support
+pypdf>=5.1.0
+pymupdf>=1.24.0
+
+# Optional: PaddleOCR for additional multilingual coverage
+# Uncomment only if you have paddlepaddle installed and CUDA available
+# paddleocr>=2.9.0
+# paddlepaddle-gpu>=2.6.0   # GPU variant
+# paddlepaddle>=2.6.0       # CPU-only variant

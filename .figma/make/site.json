@@ -1,0 +1,10 @@
+{
+  "description": "Streamlines UI design by analyzing and creating complete user interfaces, helping designers craft intuitive and visually appealing digital experiences.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
